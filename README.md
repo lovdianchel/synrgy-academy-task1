@@ -1,0 +1,1 @@
+# synrgy-academy-task1
