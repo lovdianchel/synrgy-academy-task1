@@ -38,13 +38,13 @@
     </section>
 
     <section class="section-2">
-        <div class="box" id="box1" style="margin-left: 15%;" onclick="clickBox(0)">
+        <div class="box" id="box1" style="margin-left: 15%;">
 
         </div>
-        <div class="box" id="box2" onclick="clickBox(1)">
+        <div class="box" id="box2">
 
         </div>
-        <div class="box" id="box3" style="margin-right: 15%;" onclick="clickBox(2)">
+        <div class="box" id="box3" style="margin-right: 15%;">
 
         </div>
     </section>
@@ -52,21 +52,35 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <script>
+        /* Challenge 4 JS 
         let color = ['#686de0', '#eb4d4b', '#30336b', '#e056fd', '#1abc9c', '#3498db', '#2ecc71', '#e74c3c', '#8e44ad', '#e67e22', '#f1c40f', '#ecf0f1', '#2c3e50'];
         let box = document.getElementsByClassName('box');
-        let dataColor = [];
 
         for(let i=0; i<box.length; i++){
             const random = Math.floor(Math.random() * color.length);
             box.item(i + 1).style.backgroundColor = color[random];
-            dataColor.push(random);
         }
 
         function clickBox(i) {
             var changeColor = box.item(i + 1).style.backgroundColor;
             box.item(0).style.backgroundColor = changeColor;
         }
+        */
 
+        
+        // Challenge 4 JS Jquery Version 
+        let color = ['#686de0', '#eb4d4b', '#30336b', '#e056fd', '#1abc9c', '#3498db', '#2ecc71', '#e74c3c', '#8e44ad', '#e67e22', '#f1c40f', '#ecf0f1', '#2c3e50'];
+        let box = $(".box")
+        $(document).ready(function(){
+            for(let i=0; i<box.length; i++){
+                const random = Math.floor(Math.random() * color.length);
+                $(box[i+1]).css("background-color", color[random])
+                $(box[i]).click(function(){
+                    var changeColor = $(box[i]).css( "background-color" );
+                    $(box[0]).css("background-color", changeColor);
+                });
+            }
+        });
     </script>
 
 </body>
